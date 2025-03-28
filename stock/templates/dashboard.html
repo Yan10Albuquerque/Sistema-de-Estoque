@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <!-- modal criação -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Cadastrar Novo Item</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Nome do Produto:</label>
+                    <input type="text" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <input type="text" name="description">
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Quantidade:</label>
+                    <input type="number" name="stock" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Preço:</label>
+                    <input type="number" name="price" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="btn" id="btn-secondary" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn" id="btn-primary" >Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- fim odal criação -->
+
+    <!-- modal edição -->
+    <div class="modal-overlay" id="modalOverlay" >
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Atualizar Item</h2>
+            <form method="POST" id="updateForm">
+                {% csrf_token %}
+                <input type="hidden" id="" name="">
+
+                <input type="hidden" id="equipament_id" name="equipament_id">
+
+                <div class="form-group">
+                    <label for="name">Nome do Produto:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <input type="text" id="description" name="description">
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Quantidade:</label>
+                    <input type="number" id="stock" name="stock" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Preço:</label>
+                    <input type="number" id="price" name="price" required>
+                </div>
+
+                <div class="form-buttons" id="form-buttons-edit">
+                    <a href="#">
+                        <button type="button" class="btn" id="btn-delete" >Excluir</button>
+                    </a>
+                    <div>
+                        <button type="button" class="btn" id="btn-secondary" onclick="closeModal()">Cancelar</button>
+                        <button type="submit" class="btn" id="btn-primary" >Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- fim modal edição -->
+
+    <div class="container">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in equipaments %}
+                        <tr>
+                            <td>{{ e.id }}</td>
+                            <td>{{ e.name }}</td>
+                            <td>{{ e.description }}</td>
+                            <td>R$ {{ e.price }}</td>
+                            <td>{{ e.stock }}</td>
+                            <td><button class="btn" id="btn-secundary" onclick="openModal('{{e.id}}', '{{e.name}}', '{{e.description}}', '{{e.stock}}', '{{e.price}}')">Editar</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

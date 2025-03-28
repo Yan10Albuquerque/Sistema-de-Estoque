@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  background-color: #3b3b3b;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f3f3f3;
+}
+
+.btn-cadastrar {
+  font-size: 15px;
+  background-color: #3b3b3b;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-cadastrar:hover {
+  background-color: #fcfcfc;
+  color: #3b3b3b;
+}
