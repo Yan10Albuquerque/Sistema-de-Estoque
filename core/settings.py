@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-d*0zq5&2r&)l=p^g2r7sq^5ok2e@#q80m-x-+$(y@dsb*!r5=0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["seu-app.onrender.com", "yalbuquerque.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "yalbuquerque.pythonanywhere.com"]
 
 
 # Application definition
@@ -108,7 +108,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Diretório onde os arquivos estáticos do projeto ficam
