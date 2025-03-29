@@ -92,6 +92,7 @@
     </div>
     <!-- fim modal edição -->
 
+
     <div class="container">
         <div class="table-container">
             <table>
@@ -105,7 +106,7 @@
                         <th>Ação</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
                     {% for e in equipaments %}
                         <tr>
                             <td>{{ e.id }}</td>

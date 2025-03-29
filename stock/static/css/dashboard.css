@@ -52,6 +52,9 @@ tr:hover {
   background-color: #ddd;
 }
 
+tr.hidden {
+  display: none;
+}
 
 
 
@@ -153,5 +156,8 @@ tr:hover {
   opacity: 0.8;
   box-shadow: #333 0px 0px 10px;
 }
+
+
+
 
 

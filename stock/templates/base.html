@@ -12,7 +12,12 @@
 <body>
     <nav>
         <div class="logo">Sistema de Estoque</div>
-        <button class="btn-cadastrar" onclick="showModal()">Cadastrar</button>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Digite para buscar..." onkeyup="filterTable()">
+        </div>
+        <div class="div-btn">     
+            <button class="btn-cadastrar" onclick="showModal()">Cadastrar</button>
+        </div>
     </nav>
     {% block body %}
     {% endblock %}
